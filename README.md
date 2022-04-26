@@ -3,11 +3,11 @@
 ## Project Related Repositories
 
 Project Repositories:
-* Frontend-Client: https://github.com/vitoco84/decovid-19-client
-* Backend-Core: https://github.com/vitoco84/decovid-19-core
+* [Frontent-Client](https://github.com/vitoco84/decovid-19-client)
+* [Backend-Core](https://github.com/vitoco84/decovid-19-core)
 
 Project Kanban Board Repository:
-* Issues Tracker: https://github.com/users/vitoco84/projects/2
+* [Issue Tracker Board](https://github.com/users/vitoco84/projects/2)
 
 ## Documentation
 
@@ -118,4 +118,13 @@ Als Benutzer möchte man den QR-Code im Browser auf Gültikeit verifizieren kön
 
 ### Security
 
-### User Interface / Usability
+### Prototype User Interface / Usability
+![UI Prototype](/../main/UX%20Design/decovid-19-prototype-layout.png)
+
+### Useful Links
+* [Test Data](https://github.com/ehn-dcc-development/dcc-testdata)
+* [Guidelines on Values Sets for Digital Green Certificates](https://ec.europa.eu/health/system/files/2021-04/digital-green-certificates_dt-specifications_en_0.pdf)
+* [Digital Covid Certificate Schema](https://github.com/eu-digital-green-certificates/ehn-dgc-schema)
+
+### Appendix / Disclaimer
+All images published here do not contain explicit information of real persons. All images are publicly available or are derived from test data.
