@@ -18,7 +18,7 @@ Das Covid-19 Zertifikat (QR-Code) ist auf unkonventionelle Weise encodet. Der In
 
 ### Geplantes Vorgehen
 * Lesen des QR-Codes (Upload/Scan/Drag-and-Drop Image) und Decoden zu einem String.
-* Der Inhalt muss mit "HC1:" anfangen.
+* Der Inhalt muss mit "HC1:" anfangen (EU Dcc Certificate).
 * Entfernen vom Header "HC1:".
 * Base45 decoden.
 * Decompress mit ZLIB um die COSE Nachricht zu erhalten.
@@ -125,6 +125,8 @@ Als Benutzer möchte man den QR-Code im Browser auf Gültikeit verifizieren kön
 * [Test Data](https://github.com/ehn-dcc-development/dcc-testdata)
 * [Guidelines on Values Sets for Digital Green Certificates](https://ec.europa.eu/health/system/files/2021-04/digital-green-certificates_dt-specifications_en_0.pdf)
 * [Digital Covid Certificate Schema](https://github.com/eu-digital-green-certificates/ehn-dgc-schema)
+* [Covid Certificate Apps Android](https://github.com/admin-ch/CovidCertificate-App-Android)
+* [Covid Certificate SDK Android](https://github.com/admin-ch/CovidCertificate-SDK-Android)
 
 ### Appendix / Disclaimer
 All images published here do not contain explicit information of real persons. All images are publicly available or are derived from test data.
