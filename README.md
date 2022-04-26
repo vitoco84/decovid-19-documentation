@@ -30,11 +30,26 @@ Das Covid-19 Zertifikat (QR-Code) ist auf unkonventionelle Weise encodet. Der In
 ### Geplante Technologien und Vorgehensmodell
 * Agile Software Development
 * Java Spring Boot Application (Backend / API)
-* TypeScript, HTML 5, CSS (Fronten / Angular Framework)
+* TypeScript, HTML 5, CSS (Frontend / Angular Framework / Bootstrap)
 * GitHub Repositories
 * CI/CD mit GitHub Actions
 * Integrations- und Unit-Tests
 * Application Security and Code Analysis mit SonarCloud
+
+#### Spring Boot
+Spring Boot ist ein Open-Source Framework auf Java-Basis, das zur Erstellung von Micro Services verwendet wird.
+
+#### Angular
+Angular ist eine Entwicklungsplattform, die auf TypeScript basiert. Angular umfasst:
+* Ein komponentenbasiertes Framework für die Erstellung skalierbarer Webanwendungen.
+* Eine Sammlung gut integrierter Bibliotheken, die eine Vielzahl von Funktionen abdecken, darunter Routinrg, Formularverwaltung, Client-Server-Kommunikation und mehr.
+* Eine Reihe von Entwicklertools für das Erstellen, Testen und Aktualsieren des Codes.
+
+#### Bootstrap
+Bootstrap ist ein kostenloses Frontend Framework für eine schnellere und einfachere Webentwicklung. Bootstrap umfasst:
+* HTML- und CSS-basierte Designvorlagen für Typografie, Formulare, Schaltflächen, Tabellen, Navigation, Modals, Bildkarusselle und vieles mehr.
+* Optionale JavaScript Plugins.
+* Es ermöglicht auch die einfache Erstellung von responsiven Designs.
 
 ### User Story
 Als Benutzer möchte man ein Covid-19 QR-Code Zertifikat als Bild hochladen können und als nächster Schritt die Informationen die im QR-Code enthalten sind auswerten und im Browser darstellen können. Den Inhalt soll als raw Format (JSON-Schema) und als user-friendly Format dargestellt werden. Als Benutzer möchte man das Verfahren verstehen, wie das Covid-19 Zertifikat kodiert ist. Zusätzlich möchte man als Benutzer überprüfen können, ob es sich um ein valides Covid Zertifikat handelt.
@@ -121,12 +136,17 @@ Als Benutzer möchte man den QR-Code im Browser auf Gültikeit verifizieren kön
 ### Prototype User Interface / Usability
 ![UI Prototype](/../main/UX%20Design/decovid-19-prototype-layout.png)
 
-### Useful Links
+### Useful Covid-19 Certificate Related Links
 * [Test Data](https://github.com/ehn-dcc-development/dcc-testdata)
 * [Guidelines on Values Sets for Digital Green Certificates](https://ec.europa.eu/health/system/files/2021-04/digital-green-certificates_dt-specifications_en_0.pdf)
 * [Digital Covid Certificate Schema](https://github.com/eu-digital-green-certificates/ehn-dgc-schema)
 * [Covid Certificate Apps Android](https://github.com/admin-ch/CovidCertificate-App-Android)
 * [Covid Certificate SDK Android](https://github.com/admin-ch/CovidCertificate-SDK-Android)
+
+### Useful Technology Documentation Related Links
+* [Spring Boot](https://spring.io/projects/spring-boot#overview)
+* [Angular](https://angular.io/guide/what-is-angular)
+* [Bootstrap](https://getbootstrap.com/docs/5.1/getting-started/introduction/)
 
 ### Appendix / Disclaimer
 All images published here do not contain explicit information of real persons. All images are publicly available or are derived from test data.
