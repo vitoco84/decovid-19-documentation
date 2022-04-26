@@ -105,10 +105,10 @@ Als Benutzer möchte man den QR-Code im Browser auf Gültikeit verifizieren kön
 ### Sequenz Diagramme
 ![Sequence Diagram](/../main/Files%20and%20Pictures/Sequence-Diagram.png)
 
-
 ### Testing
 
 ### Architektur und Design
+![Architecture](/../main/Files%20and%20Pictures/Architecture.png)
 
 ### Detail Beschreibung
 
