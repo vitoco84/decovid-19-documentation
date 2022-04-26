@@ -9,7 +9,7 @@ Project Repositories:
 Project Kanban Board Repository:
 * [Issue Tracker Board](https://github.com/users/vitoco84/projects/2)
 
-## Documentation
+## Dokumentation
 
 ### Ausgangslage
 Das Covid-19 Zertifikat (QR-Code) ist auf unkonventionelle Weise encodet. Der Inhalt des QR-Codes enthält Informationen über die Impfung, Testergebnis und Angaben der Person. Die Spezifikationen sind von der Europäischen Kommission gegeben und öffentlich zugänglich. Das Ziel ist ein Nachbauen des Encoding-Prozess des Covid-19 Zertifikat. Die Entwicklung der Software bietet eine Offenlegung, wie die Covid-19 Zertifikate kodiert sind, mit dazugehöriger Dokumentation und eine Single-Page-Webanwendung, wo man das Covid-19 Zertifikat hochladen kann, Anzeigen und anschliessend daraus die kodierten Informationen abzuleiten. Das bedeutet, eine unabhängige Enkodierung und Validierung der Zertifikate, wo jeder Benutzer darauf Zugriff haben kann.
@@ -30,6 +30,7 @@ Das Covid-19 Zertifikat (QR-Code) ist auf unkonventionelle Weise encodet. Der In
 ### Geplante Technologien und Vorgehensmodell
 * Agile Software Development
 * Java Spring Boot Application (Backend / API)
+* Swagger UI (Visualize API Resourcen)
 * TypeScript, HTML 5, CSS (Frontend / Angular Framework / Bootstrap)
 * GitHub Repositories
 * CI/CD mit GitHub Actions
@@ -50,6 +51,9 @@ Bootstrap ist ein kostenloses Frontend Framework für eine schnellere und einfac
 * HTML- und CSS-basierte Designvorlagen für Typografie, Formulare, Schaltflächen, Tabellen, Navigation, Modals, Bildkarusselle und vieles mehr.
 * Optionale JavaScript Plugins.
 * Es ermöglicht auch die einfache Erstellung von responsiven Designs.
+
+#### Swagger UI
+Swagger UI ermöglicht es jedem, sei es das Entwicklungsteam oder den Endverbraucher, die API-Ressourcen zu visualisieren und mit ihnen zu interagieren, ohne dass die Implementierungslogik vorhanden ist. Sie wird automatisch aus der OpenAPI-Spezifikation generiert, wobei die visuelle Dokumentation die Backend-Implementierung und die Nutzung auf der Client-Seite erleichtert.
 
 ### User Story
 Als Benutzer möchte man ein Covid-19 QR-Code Zertifikat als Bild hochladen können und als nächster Schritt die Informationen die im QR-Code enthalten sind auswerten und im Browser darstellen können. Den Inhalt soll als raw Format (JSON-Schema) und als user-friendly Format dargestellt werden. Als Benutzer möchte man das Verfahren verstehen, wie das Covid-19 Zertifikat kodiert ist. Zusätzlich möchte man als Benutzer überprüfen können, ob es sich um ein valides Covid Zertifikat handelt.
@@ -147,6 +151,8 @@ Als Benutzer möchte man den QR-Code im Browser auf Gültikeit verifizieren kön
 * [Spring Boot](https://spring.io/projects/spring-boot#overview)
 * [Angular](https://angular.io/guide/what-is-angular)
 * [Bootstrap](https://getbootstrap.com/docs/5.1/getting-started/introduction/)
+* [Swagger UI](https://swagger.io/tools/swagger-ui/)
+* [Sonarcloud](https://sonarcloud.io/)
 
 ### Appendix / Disclaimer
 All images published here do not contain explicit information of real persons. All images are publicly available or are derived from test data.
