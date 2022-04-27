@@ -137,6 +137,10 @@ Als Benutzer möchte man den QR-Code im Browser auf Gültikeit verifizieren kön
 
 ### Security
 
+### Git Flow Strategy
+GitHub Flow with main and feature branches, to keep the main code in a constant deployable state and hence support continuous integration and continuous delivery process.
+![GitHub Flow](/../main/Files%20and%20Pictures/GitHub-Flow-Strategy.png)
+
 ### Prototype User Interface / Usability
 ![UI Prototype](/../main/UX%20Design/decovid-19-prototype-layout.png)
 
