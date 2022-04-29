@@ -145,11 +145,15 @@ GitHub Flow with main and feature branches, to keep the main code in a constant 
 ![UI Prototype](/../main/UX%20Design/decovid-19-prototype-layout.png)
 
 ### Useful Covid-19 Certificate Related Links
-* [Test Data](https://github.com/ehn-dcc-development/dcc-testdata)
+* [EHN DCC Test Data](https://github.com/ehn-dcc-development/dcc-testdata)
+* [Swiss Covid Certificate Examples](https://github.com/admin-ch/CovidCertificate-Examples)
 * [Guidelines on Values Sets for Digital Green Certificates](https://ec.europa.eu/health/system/files/2021-04/digital-green-certificates_dt-specifications_en_0.pdf)
 * [Digital Covid Certificate Schema](https://github.com/eu-digital-green-certificates/ehn-dgc-schema)
 * [Covid Certificate Apps Android](https://github.com/admin-ch/CovidCertificate-App-Android)
 * [Covid Certificate SDK Android](https://github.com/admin-ch/CovidCertificate-SDK-Android)
+* [Covid Certificate API Gateway Service](https://github.com/admin-ch/CovidCertificate-Api-Gateway-Service)
+* [EU Digital Green Certificate DGC Gateway](https://github.com/eu-digital-green-certificates/dgc-gateway)
+* [Covid Certificate API Doc](https://github.com/admin-ch/CovidCertificate-Apidoc)
 
 ### Useful Technology Documentation Related Links
 * [Spring Boot](https://spring.io/projects/spring-boot#overview)
