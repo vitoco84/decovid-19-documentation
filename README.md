@@ -35,7 +35,8 @@ Das Covid-19 Zertifikat (QR-Code) ist auf unkonventionelle Weise encodet. Der In
 * GitHub Repositories
 * CI/CD mit GitHub Actions
 * Integrations- und Unit-Tests
-* Application Security and Code Analysis mit SonarCloud
+* Code Analysis mit SonarCloud
+* Application Security mit Snyk
 
 #### Spring Boot
 Spring Boot ist ein Open-Source Framework auf Java-Basis, das zur Erstellung von Micro Services verwendet wird.
@@ -54,6 +55,9 @@ Bootstrap ist ein kostenloses Frontend Framework für eine schnellere und einfac
 
 #### Swagger UI
 Swagger UI ermöglicht es jedem, sei es das Entwicklungsteam oder den Endverbraucher, die API-Ressourcen zu visualisieren und mit ihnen zu interagieren, ohne dass die Implementierungslogik vorhanden ist. Sie wird automatisch aus der OpenAPI-Spezifikation generiert, wobei die visuelle Dokumentation die Backend-Implementierung und die Nutzung auf der Client-Seite erleichtert.
+
+### Snyk
+Snyk ist eine Sicherheitsplattform für Entwickler zur Sicherung von Code, Abhängigkeiten, Containern und Infrastruktur als Code. Es erlaubt das automatische Finden von Schwachstellen im Code.
 
 ### User Story
 Als Benutzer möchte man ein Covid-19 QR-Code Zertifikat als Bild hochladen können und als nächster Schritt die Informationen die im QR-Code enthalten sind auswerten und im Browser darstellen können. Den Inhalt soll als raw Format (JSON-Schema) und als user-friendly Format dargestellt werden. Als Benutzer möchte man das Verfahren verstehen, wie das Covid-19 Zertifikat kodiert ist. Zusätzlich möchte man als Benutzer überprüfen können, ob es sich um ein valides Covid Zertifikat handelt.
@@ -161,6 +165,7 @@ GitHub Flow with main and feature branches, to keep the main code in a constant 
 * [Bootstrap](https://getbootstrap.com/docs/5.1/getting-started/introduction/)
 * [Swagger UI](https://swagger.io/tools/swagger-ui/)
 * [Sonarcloud](https://sonarcloud.io/)
+* [Snyk](https://snyk.io/)
 
 ### Appendix / Disclaimer
 All images published here do not contain explicit information of real persons. All images are publicly available or are derived from test data.
