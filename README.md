@@ -3,7 +3,7 @@
 ## Project Related Repositories
 
 Project Repositories:
-* [Frontent-Client](https://github.com/vitoco84/decovid-19-client)
+* [Frontend-Client](https://github.com/vitoco84/decovid-19-client)
 * [Backend-Core](https://github.com/vitoco84/decovid-19-core)
 
 Project Kanban Board Repository:
