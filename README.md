@@ -63,7 +63,7 @@ Snyk ist eine Sicherheitsplattform für Entwickler zur Sicherung von Code, Abhä
 Als Benutzer möchte man ein Covid-19 QR-Code Zertifikat als Bild hochladen können und als nächster Schritt die Informationen die im QR-Code enthalten sind auswerten und im Browser darstellen können. Den Inhalt soll als raw Format (JSON-Schema) und als user-friendly Format dargestellt werden. Als Benutzer möchte man das Verfahren verstehen, wie das Covid-19 Zertifikat kodiert ist. Zusätzlich möchte man als Benutzer überprüfen können, ob es sich um ein valides Covid Zertifikat handelt.
 
 ### Anforderungen
-* Testabdeckung durch Unit- und Integration-Tests.
+* Testabdeckung durch Unit-Tests.
 * Clean Code und Anwendung von SOLID Principles.
 * Einfach zu bedienendes und verständliches UI für den Benutzer (Browser Navigation und Verständlichkeit).
 * Logging und Fehlermeldung (File Persistierung).
@@ -72,6 +72,8 @@ Als Benutzer möchte man ein Covid-19 QR-Code Zertifikat als Bild hochladen kön
 
 ### Randbedingungen und Einschränkungen
 Es ist noch nicht sichergestellt, ob alle Daten für die Validierung des Zertifikates (Schweiz) öffentlich zugänglich sind, so dass auch eine offline Validierung möglich ist, ohne ein exteren Schnittstelle zu benutzen.
+
+### Funktionale- und Nicht Funktionale-Anforderungen
 
 ### Kriterien für die Akzeptanz
 
@@ -129,6 +131,7 @@ Als Benutzer möchte man den QR-Code im Browser auf Gültikeit verifizieren kön
 ![Sequence Diagram](/../main/Files%20and%20Pictures/Sequence-Diagram.png)
 
 ### Testing
+Testabdeckung durch Unit-Tests.
 
 ### Architektur und Design
 ![Architecture](/../main/Files%20and%20Pictures/Architecture.png)
@@ -140,6 +143,7 @@ Als Benutzer möchte man den QR-Code im Browser auf Gültikeit verifizieren kön
 ### Performance
 
 ### Security
+Die Sicherheit der Software wird nach best practices sichergestellt, und mit der Berücksichtigung der [OWASP Top 10](https://owasp.org/Top10/) (The Open Web Application Security Project).
 
 ### Git Flow Strategy
 GitHub Flow with main and feature branches, to keep the main code in a constant deployable state and hence support continuous integration and continuous delivery process.
@@ -147,6 +151,23 @@ GitHub Flow with main and feature branches, to keep the main code in a constant 
 
 ### Prototype User Interface / Usability
 ![UI Prototype](/../main/UX%20Design/decovid-19-prototype-layout.png)
+
+### Prioritäten
+
+#### Prio 1:
+* Single-Page-Webanwendung
+* API
+* Covid-19 QR-Code Zertifikat hochladen
+* Covid-19 QR-Code Zertifikat previewen
+* Covid-19 QR-Code Zertifikat Inhalt encoden und im Browser Anzeigen oder über die API Resource beziehen
+
+#### Prio 2:
+* Covid-19 QR-Code Zertifikat Validuerung
+* Dokumentation Page des Encoding / Decoding Prozess
+
+#### Prio 3:
+* Deployment
+* Base45 Encoder / Decoder als separates feature
 
 ### Useful Covid-19 Certificate Related Links
 * [EHN DCC Test Data](https://github.com/ehn-dcc-development/dcc-testdata)
@@ -168,4 +189,4 @@ GitHub Flow with main and feature branches, to keep the main code in a constant 
 * [Snyk](https://snyk.io/)
 
 ### Appendix / Disclaimer
-All images published here do not contain explicit information of real persons. All images are publicly available or are derived from test data.
+Alle hier veröffentlichten Bilder enthalten keine expliziten Informationen über reale Personen. Alle Bilder sind öffentlich zugänglich oder von Testdaten abgeleitet.
