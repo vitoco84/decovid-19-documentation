@@ -136,7 +136,20 @@ Testabdeckung durch Unit-Tests.
 ### Architektur und Design
 ![Architecture](/../main/Files%20and%20Pictures/Architecture.png)
 
-### Detail Beschreibung
+### Detail Beschreibung Electronic Health Certificate
+Die Nutzdaten werden als CBOR mit einer digitalen COSE-Signatur strukturiert und encodet. Dies wird allgemein als CBOR Web Token (CWT) bezeichnet und ist in [RFC 8392](https://datatracker.ietf.org/doc/html/rfc8392) definiert. Der Payload wird in einem hcert (JSON [RFC 7159](https://datatracker.ietf.org/doc/html/rfc7159) Objekt das die Informationen zum Gesundheitszustand enthält) claim transportiert. Die Integrität und Authentizität der Herkunft der Nutzdaten muss von der Prüfstelle überprüft werden können. Um diesen Mechanismus bereitzustellen, muss der Aussteller den CWT unter Verwendung eins asymmetrischen elektronischen Signaturschemas, wie in der COSE-Spezifikation ([RFC 8152](https://datatracker.ietf.org/doc/html/rfc8152)) definiert, signieren. Um die Grösse zu verringern und die Geschwindigkeit und Zuverlässigkeit beim Lesen des hcert zu verbessern, ist der CWT mit ZLIB ([RFC 1950](https://datatracker.ietf.org/doc/html/rfc1950)) und dem Deflate-Kompressionsmechanismus in dem in ([RFC 1951](https://datatracker.ietf.org/doc/html/rfc1951)) definierten Format komprimiert werden. Um mit älteren Geräten, die für ASCII-Nutzdaten ausgelegt sind, besser umgehen zu können, wurde der komprimierte CWT mit Base45 als ASCII encoded, bevor er in einen 2D-Strichcode umgewandelt wird.
+
+#### CWT Claim Structure
+* Protected Header
+  * Signature Algorithm (`alg`, label 1)
+  * Key Identifier (`kid`, label 4)
+* Payload
+  * Issuer (`iss`, claim key 1, optional, ISO 3166-1 alpha-2 of issuer)
+  * Issued At (`iat`, claim key 6)
+  * Expiration Time (`exp`, claim key 4)
+  * Health Certificate (`hcert`, claim key -260)
+    * EU Digital Covid Certificate v1 (`eu_dcc_v1` aka `eu_dgc_v1`, claim key 1)
+* Signature
 
 ### Fehlerbehandlung
 
@@ -179,6 +192,7 @@ GitHub Flow with main and feature branches, to keep the main code in a constant 
 * [Covid Certificate API Gateway Service](https://github.com/admin-ch/CovidCertificate-Api-Gateway-Service)
 * [EU Digital Green Certificate DGC Gateway](https://github.com/eu-digital-green-certificates/dgc-gateway)
 * [Covid Certificate API Doc](https://github.com/admin-ch/CovidCertificate-Apidoc)
+* [Electronic Health Certificate Specifications](https://github.com/ehn-dcc-development/hcert-spec/blob/main/hcert_spec.md)
 
 ### Useful Technology Documentation Related Links
 * [Spring Boot](https://spring.io/projects/spring-boot#overview)
