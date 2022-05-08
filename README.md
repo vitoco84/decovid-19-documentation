@@ -193,6 +193,7 @@ GitHub Flow with main and feature branches, to keep the main code in a constant 
 * [EU Digital Green Certificate DGC Gateway](https://github.com/eu-digital-green-certificates/dgc-gateway)
 * [Covid Certificate API Doc](https://github.com/admin-ch/CovidCertificate-Apidoc)
 * [Electronic Health Certificate Specifications](https://github.com/ehn-dcc-development/hcert-spec/blob/main/hcert_spec.md)
+* [Value Sets Covid Certificate JSON Schema ](https://github.com/ehn-dcc-development/ehn-dcc-valuesets)
 
 ### Useful Technology Documentation Related Links
 * [Spring Boot](https://spring.io/projects/spring-boot#overview)
