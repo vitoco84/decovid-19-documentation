@@ -172,10 +172,10 @@ GitHub Flow with main and feature branches, to keep the main code in a constant 
 * API
 * Covid-19 QR-Code Zertifikat hochladen
 * Covid-19 QR-Code Zertifikat previewen
-* Covid-19 QR-Code Zertifikat Inhalt encoden und im Browser Anzeigen oder über die API Resource beziehen
+* Covid-19 QR-Code Zertifikat Inhalt decoden und im Browser Anzeigen oder über die API Resource beziehen
 
 #### Prio 2:
-* Covid-19 QR-Code Zertifikat Validuerung
+* Covid-19 QR-Code Zertifikat Validierung
 * Dokumentation Page des Encoding / Decoding Prozess
 
 #### Prio 3:
