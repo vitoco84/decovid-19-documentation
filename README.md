@@ -76,6 +76,16 @@ Es ist noch nicht sichergestellt, ob alle Daten für die Validierung des Zertifi
 
 ### Funktionale- und Nicht Funktionale-Anforderungen
 
+#### Funktionale Anforderungen
+* Die Applikation muss den QR-Code / Covid-19 Zertifikat decoden und dessen Inhalt anzeigen können.
+* Die Applikation muss den QR-Code / Covid-19 Zertifikat auf dessen Validierung prüfen können.
+* Die Applikation muss ein API zur Verfügung stellen.
+
+#### Nicht Funktionale Anforderungen
+* Die Applikation darf keine sensitiven Personen Daten persistieren.
+* Die Applikation soll ein bedienfreundliches UI haben.
+* Die Applikation soll als Open-Source Projekt verfügbar sein.
+
 ### Kriterien für die Akzeptanz
 
 ### Use-Cases
