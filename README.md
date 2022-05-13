@@ -1,4 +1,5 @@
 # Decovid-19 Documentation
+![Decovid-19-Logo](/../main/UX%20Design/decovid-19-logo.png)
 
 ## Project Related Repositories
 
@@ -130,9 +131,6 @@ Als Benutzer möchte man den QR-Code im Browser auf Gültikeit verifizieren kön
 ### Sequenz Diagramme
 ![Sequence Diagram](/../main/Files%20and%20Pictures/Sequence-Diagram.png)
 
-### Testing
-Testabdeckung durch Unit-Tests.
-
 ### Architektur und Design
 ![Architecture](/../main/Files%20and%20Pictures/Architecture.png)
 
@@ -150,10 +148,6 @@ Die Nutzdaten werden als CBOR mit einer digitalen COSE-Signatur strukturiert und
   * Health Certificate (`hcert`, claim key -260)
     * EU Digital Covid Certificate v1 (`eu_dcc_v1` aka `eu_dgc_v1`, claim key 1)
 * Signature
-
-### Fehlerbehandlung
-
-### Performance
 
 ### Security
 Die Sicherheit der Software wird nach best practices sichergestellt, und mit der Berücksichtigung der [OWASP Top 10](https://owasp.org/Top10/) (The Open Web Application Security Project).
