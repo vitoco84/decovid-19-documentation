@@ -1,5 +1,9 @@
 # Decovid-19 Documentation
+
+## Decovid-19-Logo
 ![Decovid-19-Logo](/../main/UX%20Design/decovid-19-logo.png)
+
+Erstellt mit [Inkscape](https://inkscape.org/)
 
 ## Project Related Repositories
 
@@ -13,13 +17,13 @@ Project Kanban Board Repository:
 ## Dokumentation
 
 ### Ausgangslage
-Das Covid-19 Zertifikat (QR-Code) ist auf unkonventionelle Weise encodet. Der Inhalt des QR-Codes enthält Informationen über die Impfung, Testergebnis und Angaben der Person. Die Spezifikationen sind von der Europäischen Kommission gegeben und öffentlich zugänglich. Das Ziel ist ein Nachbauen des Encoding-Prozess des Covid-19 Zertifikat. Die Entwicklung der Software bietet eine Offenlegung, wie die Covid-19 Zertifikate kodiert sind, mit dazugehöriger Dokumentation und eine Single-Page-Webanwendung, wo man das Covid-19 Zertifikat hochladen kann, Anzeigen und anschliessend daraus die kodierten Informationen abzuleiten. Das bedeutet, eine unabhängige Enkodierung und Validierung der Zertifikate, wo jeder Benutzer darauf Zugriff haben kann.
+Das Covid-19 Zertifikat (QR-Code) ist auf unkonventionelle Weise encodet. Der Inhalt des QR-Codes enthält Informationen über die Impfung, Testergebnis und Angaben der Person. Die Spezifikationen sind von der Europäischen Kommission gegeben und öffentlich zugänglich. Das Ziel ist ein Nachbauen des Decoding-Prozess des Covid-19 Zertifikat. Die Entwicklung der Software bietet eine Offenlegung, wie die Covid-19 Zertifikate kodiert sind, mit dazugehöriger Dokumentation und eine Single-Page-Webanwendung, wo man das Covid-19 Zertifikat hochladen kann, dessen Inhalt anzeigen und anschliessend daraus die kodierten Informationen abzuleiten. Das bedeutet, eine unabhängige Dekodierung und Validierung der Zertifikate, wo jeder Benutzer darauf Zugriff haben kann. Für die Validierung ist der Fokus auf die Covid-19 Zertifikate der Schweiz gelegt.
 
 ![Encoding Process](/../main/Files%20and%20Pictures/QR-Code-Encoding-Process.png)
 
 ### Geplantes Vorgehen
 * Lesen des QR-Codes (Upload/Scan/Drag-and-Drop Image) und Decoden zu einem String.
-* Der Inhalt muss mit "HC1:" anfangen (EU Dcc Certificate).
+* Der Inhalt muss mit "HC1:" anfangen (EU DCC Certificate).
 * Entfernen vom Header "HC1:".
 * Base45 decoden.
 * Decompress mit ZLIB um die COSE Nachricht zu erhalten.
@@ -35,7 +39,7 @@ Das Covid-19 Zertifikat (QR-Code) ist auf unkonventionelle Weise encodet. Der In
 * TypeScript, HTML 5, CSS (Frontend / Angular Framework / Bootstrap)
 * GitHub Repositories
 * CI/CD mit GitHub Actions
-* Integrations- und Unit-Tests
+* Unit-Tests
 * Code Analysis mit SonarCloud
 * Application Security mit Snyk
 
@@ -67,12 +71,12 @@ Als Benutzer möchte man ein Covid-19 QR-Code Zertifikat als Bild hochladen kön
 * Testabdeckung durch Unit-Tests.
 * Clean Code und Anwendung von SOLID Principles.
 * Einfach zu bedienendes und verständliches UI für den Benutzer (Browser Navigation und Verständlichkeit).
-* Logging und Fehlermeldung (File Persistierung).
+* Logging und Fehlermeldung.
 * Application Security.
 * Keine sensitive Daten von Benutzern persistieren oder loggen.
 
 ### Randbedingungen und Einschränkungen
-Es ist noch nicht sichergestellt, ob alle Daten für die Validierung des Zertifikates (Schweiz) öffentlich zugänglich sind, so dass auch eine offline Validierung möglich ist, ohne ein exteren Schnittstelle zu benutzen.
+Es ist noch nicht sichergestellt, ob alle Daten für die Validierung des Zertifikates (Schweiz) öffentlich zugänglich sind, so dass auch eine offline Validierung möglich ist, ohne eine externe Schnittstelle zu benutzen.
 
 ### Funktionale- und Nicht Funktionale-Anforderungen
 
@@ -163,7 +167,8 @@ Die Nutzdaten werden als CBOR mit einer digitalen COSE-Signatur strukturiert und
 Die Sicherheit der Software wird nach best practices sichergestellt, und mit der Berücksichtigung der [OWASP Top 10](https://owasp.org/Top10/) (The Open Web Application Security Project).
 
 ### Git Flow Strategy
-GitHub Flow with main and feature branches, to keep the main code in a constant deployable state and hence support continuous integration and continuous delivery process.
+GitHub Flow mit main- und feature-branches, um den Hauptcode in einem konstanten, einsatzfähigen Zustand zu halten und somit die kontinuierliche Integration und den kontinuierlichen Bereitstellungsprozess zu unterstützen.
+
 ![GitHub Flow](/../main/Files%20and%20Pictures/GitHub-Flow-Strategy.png)
 
 ### Prototype User Interface / Usability
