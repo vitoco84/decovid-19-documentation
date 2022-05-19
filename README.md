@@ -172,7 +172,7 @@ GitHub Flow mit main- und feature-branches, um den Hauptcode in einem konstanten
 ![GitHub Flow](/../main/Files%20and%20Pictures/GitHub-Flow-Strategy.png)
 
 ### Prototype User Interface / Usability
-![UI Prototype](/../main/UX%20Design/decovid-19-prototype-layout.png)
+![UI Prototype](/../main/UX%20Design/decovid-19-prototype-layout-diagrams.png)
 
 ### Prioritäten
 
