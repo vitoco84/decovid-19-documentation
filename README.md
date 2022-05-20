@@ -149,7 +149,7 @@ Als Benutzer möchte man den QR-Code im Browser auf Gültikeit verifizieren kön
 ![Architecture](/../main/Files%20and%20Pictures/Architecture.png)
 
 ### Detail Beschreibung Electronic Health Certificate
-Die Nutzdaten werden als CBOR mit einer digitalen COSE-Signatur strukturiert und encodet. Dies wird allgemein als CBOR Web Token (CWT) bezeichnet und ist in [RFC 8392](https://datatracker.ietf.org/doc/html/rfc8392) definiert. Der Payload wird in einem hcert (JSON [RFC 7159](https://datatracker.ietf.org/doc/html/rfc7159) Objekt das die Informationen zum Gesundheitszustand enthält) claim transportiert. Die Integrität und Authentizität der Herkunft der Nutzdaten muss von der Prüfstelle überprüft werden können. Um diesen Mechanismus bereitzustellen, muss der Aussteller den CWT unter Verwendung eins asymmetrischen elektronischen Signaturschemas, wie in der COSE-Spezifikation ([RFC 8152](https://datatracker.ietf.org/doc/html/rfc8152)) definiert, signieren. Um die Grösse zu verringern und die Geschwindigkeit und Zuverlässigkeit beim Lesen des hcert zu verbessern, ist der CWT mit ZLIB ([RFC 1950](https://datatracker.ietf.org/doc/html/rfc1950)) und dem Deflate-Kompressionsmechanismus in dem in ([RFC 1951](https://datatracker.ietf.org/doc/html/rfc1951)) definierten Format komprimiert werden. Um mit älteren Geräten, die für ASCII-Nutzdaten ausgelegt sind, besser umgehen zu können, wurde der komprimierte CWT mit Base45 als ASCII encoded, bevor er in einen 2D-Strichcode umgewandelt wird.
+Die Nutzdaten werden als CBOR mit einer digitalen COSE-Signatur strukturiert und encodet. Dies wird allgemein als CBOR Web Token (CWT) bezeichnet und ist in [RFC 8392](https://datatracker.ietf.org/doc/html/rfc8392) definiert. Der Payload wird in einem hcert (JSON [RFC 7159](https://datatracker.ietf.org/doc/html/rfc7159) Objekt das die Informationen zum Gesundheitszustand enthält) claim transportiert. Die Integrität und Authentizität der Herkunft der Nutzdaten muss von der Prüfstelle überprüft werden können. Um diesen Mechanismus bereitzustellen, muss der Aussteller den CWT unter Verwendung eins asymmetrischen elektronischen Signaturschemas, wie in der COSE-Spezifikation ([RFC 8152](https://datatracker.ietf.org/doc/html/rfc8152)) definiert, signieren. Um die Grösse zu verringern und die Geschwindigkeit und Zuverlässigkeit beim Lesen des hcert zu verbessern, ist der CWT mit ZLib ([RFC 1950](https://datatracker.ietf.org/doc/html/rfc1950)) und dem Deflate-Kompressionsmechanismus in dem in ([RFC 1951](https://datatracker.ietf.org/doc/html/rfc1951)) definierten Format komprimiert werden. Um mit älteren Geräten, die für ASCII-Nutzdaten ausgelegt sind, besser umgehen zu können, wurde der komprimierte CWT mit Base45 als ASCII encoded, bevor er in einen 2D-Strichcode umgewandelt wird.
 
 #### CWT Claim Structure
 * Protected Header
@@ -162,6 +162,18 @@ Die Nutzdaten werden als CBOR mit einer digitalen COSE-Signatur strukturiert und
   * Health Certificate (`hcert`, claim key -260)
     * EU Digital Covid Certificate v1 (`eu_dcc_v1` aka `eu_dgc_v1`, claim key 1)
 * Signature
+
+#### Base45 Data Encoding
+Ein QR-Code wird verwendet, um Text als grafisches Bild zu kodieren. Abhängig von den im Text verwendeten Zeichen gibt es veschiedene Kodierungsmöglichkeiten für einen QR-Code. Z.B. numerisch, alphanumerisch und bytes-modus. Das bedeutet solche Daten müssen in einen geeigneten Text umgewandelt werden, bevor dieser Text als QR-Code kodiert werden kann. Für das Covid-Zertifikat wird eine 45 Zeichen Untermenge von ASCII (American Standard Code for Information Interchange) verwendet.
+
+#### ZLib
+ZLib ist eine Software Library für die Komprimierung und Dekomprimierung von Daten mit dem Deflate-Algorithmus (verlustfreien Datenkompression).
+
+#### Concise Binary Object Representation (CBOR)
+CBOR ist ein binäres kompaktes Datenformat dessen Design Ziele die Möglichkeit einer extrem kleinen Code Grösse, eine relativ kleine Nachrichtengrösse und Erweiterbarkeit ohne die Notwendigkeit für Version handling. Das zugrunde liegende Datenmodell ist eine erweiterte Version des JSON Datenmodell. Es erhöht die Prozessierungs- und Übertragungsgeschwindigkeit auf Kosten der Lesbarkeit. Es ist das Datenformat auf dem COSE Nachrichten basieren.
+
+#### CBOR Object Signing and Encyption (COSE)
+COSE legt fest, wie Verschlüsselung, Signaturen und Message-Authentication-Code (MAC) Operationen zu verarbeiten sind und wie die Schlüssel mit CBOR kodiert werden können. Also ein signierter binäres Datenformat. Die Grundstruktur einer COSE Nachricht besteht aus 2 Informationsbereichen (Protected- und Unprotected-Header) und dem Payload der Nachricht. Es gibt 6 verschieden COSE Nachrichten. Die COSE Nachricht, die für das Covid Zertifikat genutzt wird ist vom Typ `Sign1Message`. Das bedeutet es enthält eine Signatur in bytes. Damit nun das Covid Zertifikat validiert werden kann, müssen die Validerungsstellen implizit den öffentlichen (public key) kennen, um die Nachricht zu überprüfen, da keine zusätzlichen Schlüsselinformationen übertragen werden.
 
 ### Security
 Die Sicherheit der Software wird nach best practices sichergestellt, und mit der Berücksichtigung der [OWASP Top 10](https://owasp.org/Top10/) (The Open Web Application Security Project).
