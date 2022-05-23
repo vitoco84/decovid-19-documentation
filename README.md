@@ -175,6 +175,16 @@ CBOR ist ein binäres kompaktes Datenformat dessen Design Ziele die Möglichkeit
 #### CBOR Object Signing and Encyption (COSE)
 COSE legt fest, wie Verschlüsselung, Signaturen und Message-Authentication-Code (MAC) Operationen zu verarbeiten sind und wie die Schlüssel mit CBOR kodiert werden können. Also ein signierter binäres Datenformat. Die Grundstruktur einer COSE Nachricht besteht aus 2 Informationsbereichen (Protected- und Unprotected-Header) und dem Payload der Nachricht. Es gibt 6 verschieden COSE Nachrichten. Die COSE Nachricht, die für das Covid Zertifikat genutzt wird ist vom Typ `Sign1Message`. Das bedeutet es enthält eine Signatur in bytes. Damit nun das Covid Zertifikat validiert werden kann, müssen die Validerungsstellen implizit den öffentlichen (public key) kennen, um die Nachricht zu überprüfen, da keine zusätzlichen Schlüsselinformationen übertragen werden.
 
+#### Requirements on TLS (Transport Layer Security), Upload and CSCA (Swiss Country Signing Certification Authority)
+Für digitale Zertifikate und kryptografische Signaturen im DCCG-Kontenxt (Digital Covid Certificate Gateway) sind die wichtigsten Anforderungen an kryptografische Algorithmen und Schlüssellängen wie folgt zusammengefasst:
+
+| Signature Algorithm | Key Size | Hash Function |
+|---------------------|----------|---------------|
+| EC-DSA | Min. 250 Bit | SHA-2 with an output length >= 256 Bit |
+| RSA-PSS (recommended padding) | Min. 3000 Bit RSA Modulus (N) with a public exponent e > 2^16 | SHA-2 with an output length >= 256 Bit |
+| RSA-PKCS#1 v1.5 (legacy padding) | Min. 3000 Bit RSA Modulus (N) with a public exponent e > 2^16 | SHA-2 with an output length >= 256 Bit |
+| DSA | Min. 3000 Bit prime p, 250 Bit key q | SHA-2 with an output length >= 256 Bit |
+
 ### Security
 Die Sicherheit der Software wird nach best practices sichergestellt, und mit der Berücksichtigung der [OWASP Top 10](https://owasp.org/Top10/) (The Open Web Application Security Project).
 
@@ -203,6 +213,13 @@ GitHub Flow mit main- und feature-branches, um den Hauptcode in einem konstanten
 * Deployment
 * Base45 Encoder / Decoder als separates feature
 
+### Akronyme
+* DSA: Digital Signature Algorithm
+* ECDSA: Elliptic Curve Digital Signature Algorithm
+* PKCS: Public Key Cryptography Standard
+* RSA: Algorithm developed by Rives, Shamir and Adleman
+* SHA: Secure Hash Algorithm
+
 ### Useful Covid-19 Certificate Related Links
 * [EHN DCC Test Data](https://github.com/ehn-dcc-development/dcc-testdata)
 * [Swiss Covid Certificate Examples](https://github.com/admin-ch/CovidCertificate-Examples)
@@ -215,6 +232,7 @@ GitHub Flow mit main- und feature-branches, um den Hauptcode in einem konstanten
 * [Covid Certificate API Doc](https://github.com/admin-ch/CovidCertificate-Apidoc)
 * [Electronic Health Certificate Specifications](https://github.com/ehn-dcc-development/hcert-spec/blob/main/hcert_spec.md)
 * [Value Sets Covid Certificate JSON Schema ](https://github.com/ehn-dcc-development/ehn-dcc-valuesets)
+* [Technical Specifications for EU Digital COVID Certificates](https://ec.europa.eu/health/publications/technical-specifications-eu-digital-covid-certificates-volumes-1-5_en)
 
 ### Useful Technology Documentation Related Links
 * [Spring Boot](https://spring.io/projects/spring-boot#overview)
