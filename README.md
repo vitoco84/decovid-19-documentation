@@ -185,6 +185,11 @@ Für digitale Zertifikate und kryptografische Signaturen im DCCG-Kontenxt (Digit
 | RSA-PKCS#1 v1.5 (legacy padding) | Min. 3000 Bit RSA Modulus (N) with a public exponent e > 2^16 | SHA-2 with an output length >= 256 Bit |
 | DSA | Min. 3000 Bit prime p, 250 Bit key q | SHA-2 with an output length >= 256 Bit |
 
+#### Covid Zertifikat Überprüfungs Regeln
+* Enthält das Zertifikat eine gütlige elektronische Signatur?
+* Ist das Zertifikat definitiv nicht widerrufen worde?
+* Erfüllt das Zertifikat die anwendbaren Gültigkeitsregeln (Business Rules)?
+
 ### Security
 Die Sicherheit der Software wird nach best practices sichergestellt, und mit der Berücksichtigung der [OWASP Top 10](https://owasp.org/Top10/) (The Open Web Application Security Project).
 
