@@ -1,10 +1,35 @@
 # Decovid-19 Documentation
 
+- [Decovid-19-Logo](#logo)
+- [Project Related Repositories](#project-related-repos)
+- [Dokumentation](#dokumentation)
+  - [Ausgangslage](#ausgangslage)
+  - [Geplantes Vorgehen](#geplantes-vorgehen)
+  - [Geplante Technologien](#geplante-technologien)
+  - [User Story](#user-story)
+  - [Anforderungen](#anforderungen)
+  - [Randbedingungen und Einschränkungen](#randbedingungen)
+  - [Funktionale- und Nicht Funktionale-Anforderungen](#anforderungen-funk-nicht)
+  - [Use-Cases](#use-cases)
+  - [Sequenz Diagramme](#sequenz-diagramm)
+  - [Architektur und Design](#architektur)
+  - [Detail Beschreibung Electronic Health Certificate](#hcert)
+  - [Security](#security)
+  - [Git Flow Strategy](#git-flow)
+  - [Prototype User Interface / Usability](#prototyp-layout)
+  - [Prioritäten](#prioritaeten)
+  - [Akronyme](#akronyme)
+  - [Useful Covid-19 Certificate Related Links](#covid19-links)
+  - [Useful Technology Documentation Related Links](#technologien-links)
+  - [Appendix / Disclaimer](#appendix)
+
+<a name="logo"></a>
 ## Decovid-19-Logo
 ![Decovid-19-Logo](/../main/UX%20Design/decovid-19-logo.png)
 
 Erstellt mit [Inkscape](https://inkscape.org/)
 
+<a name="project-related-repos"></a>
 ## Project Related Repositories
 
 Project Repositories:
@@ -14,13 +39,16 @@ Project Repositories:
 Project Kanban Board Repository:
 * [Issue Tracker Board](https://github.com/users/vitoco84/projects/2)
 
+<a name="dokumentation"></a>
 ## Dokumentation
 
+<a name="ausgangslage"></a>
 ### Ausgangslage
 Das Covid-19 Zertifikat (QR-Code) ist auf unkonventionelle Weise encodet. Der Inhalt des QR-Codes enthält Informationen über die Impfung, Testergebnis und Angaben der Person. Die Spezifikationen sind von der Europäischen Kommission gegeben und öffentlich zugänglich. Das Ziel ist ein Nachbauen des Decoding-Prozess des Covid-19 Zertifikat. Die Entwicklung der Software bietet eine Offenlegung, wie die Covid-19 Zertifikate kodiert sind, mit dazugehöriger Dokumentation und eine Single-Page-Webanwendung, wo man das Covid-19 Zertifikat hochladen kann, dessen Inhalt anzeigen und anschliessend daraus die kodierten Informationen abzuleiten. Das bedeutet, eine unabhängige Dekodierung und Validierung der Zertifikate, wo jeder Benutzer darauf Zugriff haben kann. Für die Validierung ist der Fokus auf die Covid-19 Zertifikate der Schweiz gelegt.
 
 ![Encoding Process](/../main/Files%20and%20Pictures/QR-Code-Encoding-Process.png)
 
+<a name="geplantes-vorgehen"></a>
 ### Geplantes Vorgehen
 * Lesen des QR-Codes (Upload/Scan/Drag-and-Drop Image) und Decoden zu einem String.
 * Der Inhalt muss mit "HC1:" anfangen (EU DCC Certificate).
@@ -32,6 +60,7 @@ Das Covid-19 Zertifikat (QR-Code) ist auf unkonventionelle Weise encodet. Der In
 * CBOR Inhalt decoden.
 * JSON Schema erhalten.
 
+<a name="geplante-technologien"></a>
 ### Geplante Technologien und Vorgehensmodell
 * Agile Software Development
 * Java Spring Boot Application (Backend / API)
@@ -61,12 +90,14 @@ Bootstrap ist ein kostenloses Frontend Framework für eine schnellere und einfac
 #### Swagger UI
 Swagger UI ermöglicht es jedem, sei es das Entwicklungsteam oder den Endverbraucher, die API-Ressourcen zu visualisieren und mit ihnen zu interagieren, ohne dass die Implementierungslogik vorhanden ist. Sie wird automatisch aus der OpenAPI-Spezifikation generiert, wobei die visuelle Dokumentation die Backend-Implementierung und die Nutzung auf der Client-Seite erleichtert.
 
-### Snyk
+#### Snyk
 Snyk ist eine Sicherheitsplattform für Entwickler zur Sicherung von Code, Abhängigkeiten, Containern und Infrastruktur als Code. Es erlaubt das automatische Finden von Schwachstellen im Code.
 
+<a name="user-story"></a>
 ### User Story
 Als Benutzer möchte man ein Covid-19 QR-Code Zertifikat als Bild hochladen können und als nächster Schritt die Informationen die im QR-Code enthalten sind auswerten und im Browser darstellen können. Den Inhalt soll als raw Format (JSON-Schema) und als user-friendly Format dargestellt werden. Als Benutzer möchte man das Verfahren verstehen, wie das Covid-19 Zertifikat kodiert ist. Zusätzlich möchte man als Benutzer überprüfen können, ob es sich um ein valides Covid Zertifikat handelt.
 
+<a name="anforderungen"></a>
 ### Anforderungen
 * Testabdeckung durch Unit-Tests.
 * Clean Code und Anwendung von SOLID Principles.
@@ -75,9 +106,11 @@ Als Benutzer möchte man ein Covid-19 QR-Code Zertifikat als Bild hochladen kön
 * Application Security.
 * Keine sensitive Daten von Benutzern persistieren oder loggen.
 
+<a name="randbedingungen"></a>
 ### Randbedingungen und Einschränkungen
 Es ist noch nicht sichergestellt, ob alle Daten für die Validierung des Zertifikates (Schweiz) öffentlich zugänglich sind, so dass auch eine offline Validierung möglich ist, ohne eine externe Schnittstelle zu benutzen.
 
+<a name="anforderungen-funk-nicht"></a>
 ### Funktionale- und Nicht Funktionale-Anforderungen
 
 #### Funktionale Anforderungen
@@ -90,8 +123,7 @@ Es ist noch nicht sichergestellt, ob alle Daten für die Validierung des Zertifi
 * Die Applikation soll ein bedienfreundliches UI haben.
 * Die Applikation soll als Open-Source Projekt verfügbar sein.
 
-### Kriterien für die Akzeptanz
-
+<a name="use-cases"></a>
 ### Use-Cases
 
 **Use-Case 1:**\
@@ -142,12 +174,15 @@ Als Benutzer möchte man den Inhalt des QR-Codes der im Browser dargestellt wird
 Covid-19 Zertifikat QR-Code Verifizieren.\
 Als Benutzer möchte man den QR-Code im Browser auf Gültikeit verifizieren können.
 
+<a name="sequenz-diagramm"></a>
 ### Sequenz Diagramme
 ![Sequence Diagram](/../main/Files%20and%20Pictures/Sequence-Diagram.png)
 
+<a name="architektur"></a>
 ### Architektur und Design
 ![Architecture](/../main/Files%20and%20Pictures/Architecture.png)
 
+<a name="hcert"></a>
 ### Detail Beschreibung Electronic Health Certificate
 Die Nutzdaten werden als CBOR mit einer digitalen COSE-Signatur strukturiert und encodet. Dies wird allgemein als CBOR Web Token (CWT) bezeichnet und ist in [RFC 8392](https://datatracker.ietf.org/doc/html/rfc8392) definiert. Der Payload wird in einem hcert (JSON [RFC 7159](https://datatracker.ietf.org/doc/html/rfc7159) Objekt das die Informationen zum Gesundheitszustand enthält) claim transportiert. Die Integrität und Authentizität der Herkunft der Nutzdaten muss von der Prüfstelle überprüft werden können. Um diesen Mechanismus bereitzustellen, muss der Aussteller den CWT unter Verwendung eins asymmetrischen elektronischen Signaturschemas, wie in der COSE-Spezifikation ([RFC 8152](https://datatracker.ietf.org/doc/html/rfc8152)) definiert, signieren. Um die Grösse zu verringern und die Geschwindigkeit und Zuverlässigkeit beim Lesen des hcert zu verbessern, ist der CWT mit ZLib ([RFC 1950](https://datatracker.ietf.org/doc/html/rfc1950)) und dem Deflate-Kompressionsmechanismus in dem in ([RFC 1951](https://datatracker.ietf.org/doc/html/rfc1951)) definierten Format komprimiert werden. Um mit älteren Geräten, die für ASCII-Nutzdaten ausgelegt sind, besser umgehen zu können, wurde der komprimierte CWT mit Base45 als ASCII encoded, bevor er in einen 2D-Strichcode umgewandelt wird.
 
@@ -190,17 +225,21 @@ Für digitale Zertifikate und kryptografische Signaturen im DCCG-Kontenxt (Digit
 * Ist das Zertifikat definitiv nicht widerrufen worde?
 * Erfüllt das Zertifikat die anwendbaren Gültigkeitsregeln (Business Rules)?
 
+<a name="security"></a>
 ### Security
 Die Sicherheit der Software wird nach best practices sichergestellt, und mit der Berücksichtigung der [OWASP Top 10](https://owasp.org/Top10/) (The Open Web Application Security Project).
 
+<a name="git-flow"></a>
 ### Git Flow Strategy
 GitHub Flow mit main- und feature-branches, um den Hauptcode in einem konstanten, einsatzfähigen Zustand zu halten und somit die kontinuierliche Integration und den kontinuierlichen Bereitstellungsprozess zu unterstützen.
 
 ![GitHub Flow](/../main/Files%20and%20Pictures/GitHub-Flow-Strategy.png)
 
+<a name="prototyp-layout"></a>
 ### Prototype User Interface / Usability
 ![UI Prototype](/../main/UX%20Design/decovid-19-prototype-layout-diagrams.png)
 
+<a name="prioritaeten"></a>
 ### Prioritäten
 
 #### Prio 1:
@@ -218,6 +257,7 @@ GitHub Flow mit main- und feature-branches, um den Hauptcode in einem konstanten
 * Deployment
 * Base45 Encoder / Decoder als separates feature
 
+<a name="akronyme"></a>
 ### Akronyme
 * DSA: Digital Signature Algorithm
 * ECDSA: Elliptic Curve Digital Signature Algorithm
@@ -225,6 +265,7 @@ GitHub Flow mit main- und feature-branches, um den Hauptcode in einem konstanten
 * RSA: Algorithm developed by Rives, Shamir and Adleman
 * SHA: Secure Hash Algorithm
 
+<a name="covid19-links"></a>
 ### Useful Covid-19 Certificate Related Links
 * [EHN DCC Test Data](https://github.com/ehn-dcc-development/dcc-testdata)
 * [Swiss Covid Certificate Examples](https://github.com/admin-ch/CovidCertificate-Examples)
@@ -239,6 +280,7 @@ GitHub Flow mit main- und feature-branches, um den Hauptcode in einem konstanten
 * [Value Sets Covid Certificate JSON Schema ](https://github.com/ehn-dcc-development/ehn-dcc-valuesets)
 * [Technical Specifications for EU Digital COVID Certificates](https://ec.europa.eu/health/publications/technical-specifications-eu-digital-covid-certificates-volumes-1-5_en)
 
+<a name="technologien-links"></a>
 ### Useful Technology Documentation Related Links
 * [Spring Boot](https://spring.io/projects/spring-boot#overview)
 * [Angular](https://angular.io/guide/what-is-angular)
@@ -247,5 +289,6 @@ GitHub Flow mit main- und feature-branches, um den Hauptcode in einem konstanten
 * [Sonarcloud](https://sonarcloud.io/)
 * [Snyk](https://snyk.io/)
 
+<a name="appendix"></a>
 ### Appendix / Disclaimer
 Alle hier veröffentlichten Bilder enthalten keine expliziten Informationen über reale Personen. Alle Bilder sind öffentlich zugänglich oder von Testdaten abgeleitet.
