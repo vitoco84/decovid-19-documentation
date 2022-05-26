@@ -21,6 +21,7 @@
   - [Akronyme](#akronyme)
   - [Useful Covid-19 Certificate Related Links](#covid19-links)
   - [Useful Technology Documentation Related Links](#technologien-links)
+  - [Useful Formatting / Decoding Links](#formatting-links)
   - [Appendix / Disclaimer](#appendix)
 
 <a name="logo"></a>
@@ -306,6 +307,11 @@ GitHub Flow mit main- und feature-branches, um den Hauptcode in einem konstanten
 * [Swagger UI](https://swagger.io/tools/swagger-ui/)
 * [Sonarcloud](https://sonarcloud.io/)
 * [Snyk](https://snyk.io/)
+
+<a name="formatting-links"></a>
+### Useful Formatting / Decoding Links
+* [X.509 Fromatter](https://www.samltool.com/format_x509cert.php)
+* [PEM Decoder](https://report-uri.com/home/pem_decoder)
 
 <a name="appendix"></a>
 ### Appendix / Disclaimer
