@@ -225,6 +225,24 @@ Für digitale Zertifikate und kryptografische Signaturen im DCCG-Kontenxt (Digit
 * Ist das Zertifikat definitiv nicht widerrufen worde?
 * Erfüllt das Zertifikat die anwendbaren Gültigkeitsregeln (Business Rules)?
 
+#### Digitale Zertifikate
+Digitale Zertifikate enthalten bestimmte Informationen, die durch den X.509 [RFC 2459](https://www.ietf.org/rfc/rfc2459.txt) Standard festgelegt sind.
+
+Digitale Zertifikate enthalten mindestens die folgenden Informationen über die zu zertifizierende Authority:
+* Den öffentlichen Schlüssel (Public Key) des Inhabers
+* Den Namen des Inhabers
+* Den Namen der CA (Certificate Authority), die das Zertifikat ausgestellt hat
+* Das Datum, ab dem das Zertifikat gültig ist
+* Das Verfallsdatum des Zertifikates
+* Die Versionsnummer des Zertifikatsdatenformat, wie in X.509 definiert (Standard ist Version 3)
+* Eine Seriennummer, eine eindeutge Kennung, die von der CA vergeben wird
+* Ein Issuer Identifier
+* Ein Subject Identiifer
+
+Die digitale Signatur in einem Zertifikat wird mit dem privaten Schlüssel (Private Key) der Zertifizierungsstelle erzeugt, die das Zertifikat signiert hat. Jeder, der das persönliche Zertifikat überprüfen muss, kann dazu den öffentlichen Schlüssel der CA verwenden. Das Zertifikat der CA enthält ihren öffentlichen Schlüssel.
+
+Digitale Zertifikate enthalten nicht ihren privaten Schlüssel. Sie müssen ihren privaten Schlüssel geheim halten.
+
 <a name="security"></a>
 ### Security
 Die Sicherheit der Software wird nach best practices sichergestellt, und mit der Berücksichtigung der [OWASP Top 10](https://owasp.org/Top10/) (The Open Web Application Security Project).
