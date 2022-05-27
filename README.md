@@ -175,6 +175,14 @@ Als Benutzer möchte man den Inhalt des QR-Codes der im Browser dargestellt wird
 Covid-19 Zertifikat QR-Code Verifizieren.\
 Als Benutzer möchte man den QR-Code im Browser auf Gültikeit verifizieren können.
 
+**Use-Case 8:**\
+Covid-19 Test Zertifikate QR-Code erstellen.\
+Als Benutzer möchte man ein fakes Test Zertifikat erstellen können.
+
+**Use-Case 9:**\
+PEM formattierte digitale Zertifikate Inhalt anzeigen.\
+Als Benutzer möchte man den Inhalt der PEM formattierte digitiale Zertifikate im Browser anzeigen können.
+
 <a name="sequenz-diagramm"></a>
 ### Sequenz Diagramme
 ![Sequence Diagram](/../main/Files%20and%20Pictures/Sequence-Diagram.png)
@@ -263,13 +271,14 @@ GitHub Flow mit main- und feature-branches, um den Hauptcode in einem konstanten
 
 #### Prio 1:
 * Single-Page-Webanwendung
-* API
+* API Schnittstelle (Swagger UI)
 * Covid-19 QR-Code Zertifikat hochladen
 * Covid-19 QR-Code Zertifikat previewen
 * Covid-19 QR-Code Zertifikat Inhalt decoden und im Browser Anzeigen oder über die API Resource beziehen
 
 #### Prio 2:
 * Covid-19 QR-Code Zertifikat Validierung
+* PEM Digitale Zertifikate Inhalt anzeigen
 * Dokumentation Page des Encoding / Decoding Prozess
 
 #### Prio 3:
