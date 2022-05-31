@@ -185,7 +185,9 @@ Als Benutzer möchte man den Inhalt der PEM formattierte digitiale Zertifikate i
 
 <a name="sequenz-diagramm"></a>
 ### Sequenz Diagramme
-![Sequence Diagram](/../main/Files%20and%20Pictures/Sequence-Diagram.png)
+![Sequence Diagram Decode](/../main/Files%20and%20Pictures/Sequence-Diagram-Decode.png)
+![Sequence Diagram Test Cert](/../main/Files%20and%20Pictures/Sequence-Diagram-Test-Cert.png)
+![Sequence Diagram PEM Cert](/../main/Files%20and%20Pictures/Sequence-Diagram-PEM-Cert.png)
 
 <a name="architektur"></a>
 ### Architektur und Design
