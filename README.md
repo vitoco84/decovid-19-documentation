@@ -185,12 +185,23 @@ Als Benutzer möchte man den Inhalt der PEM formattierte digitiale Zertifikate i
 
 <a name="sequenz-diagramm"></a>
 ### Sequenz Diagramme
+
+#### Decode Digital Health Certificate
 ![Sequence Diagram Decode](/../main/Files%20and%20Pictures/Sequence-Diagram-Decode.png)
+
+#### Create a Fake Test Health Certificate
 ![Sequence Diagram Test Cert](/../main/Files%20and%20Pictures/Sequence-Diagram-Test-Cert.png)
+
+#### Decode Digitial X509 Certificate
 ![Sequence Diagram PEM Cert](/../main/Files%20and%20Pictures/Sequence-Diagram-PEM-Cert.png)
 
 <a name="architektur"></a>
 ### Architektur und Design
+
+* 2-Tier Architecture with:
+  * Präsentationsschicht (client tier)
+  * Logikschicht (application-server tier)
+
 ![Architecture](/../main/Files%20and%20Pictures/Architecture.png)
 
 <a name="hcert"></a>
