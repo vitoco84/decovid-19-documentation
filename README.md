@@ -183,6 +183,10 @@ Als Benutzer möchte man ein fakes Test Zertifikat erstellen können.
 PEM formattierte digitale Zertifikate Inhalt anzeigen.\
 Als Benutzer möchte man den Inhalt der PEM formattierte digitiale Zertifikate im Browser anzeigen können.
 
+**Use-Case 10:**\
+Schritt für Schritt Anleitung wie ein Covid-19 Zertifikat Kodiert und dekodiert wird.\
+Als Benutzer möchte man erfahren wie die Covid-19 Zertifikate kodiert und dekodiert werden (Dokumentation Page).
+
 <a name="sequenz-diagramm"></a>
 ### Sequenz Diagramme
 
