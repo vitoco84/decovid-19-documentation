@@ -128,20 +128,8 @@ Es ist noch nicht sichergestellt, ob alle Daten für die Validierung des Zertifi
 ### Use-Cases
 
 **Use-Case 1:**\
-Covid-19 Zertifikat QR-Code Upload via Button.\
-Als Benutzer möchte man ein Covid-19 Zertifikat als QR-Code im Browser hochladen können via Button click.
-
-**Use-Case 2:**\
-Covid-19 Zertifikat QR-Code Upload via Drag and Drop.\
-Als Benutzer möchte man ein Covid-19 Zertifikat als QR-Code im Browser via Drag and Drop hochladen können.
-
-**Use-Case 3:**\
-Covid-19 Zertifikat QR-Code Upload via Scanning.\
-Als Benutzer möchte man ein Covid-19 Zertifikat als QR-Code im Browser mit der Kamera des Computers hochladen können.
-
-**Use-Case 4:**\
 Covid-19 Zertifikat Inhalt Anzeigen.\
-Als Benutzer möchte man den kodierten Inhalt des QR-Codes im Browser anzeigen lassen können. Der Inhalt soll in einem User Friendly Format und als Raw Format angezeigt werden können.
+Als Benutzer möchte man den kodierten Inhalt des QR-Codes im Browser anzeigen lassen können. Der Inhalt soll in einem User Friendly Format und als Raw Json Format angezeigt werden können. Zudem soll die Möglichkeit bestehen das Bild des QR-Code im Browser via Button Klick, vie Drag and Drop und via Computer Kamera hochladen zu können.
 * Certification Type
 * Schema Version
 * Vorname
@@ -158,32 +146,32 @@ Als Benutzer möchte man den kodierten Inhalt des QR-Codes im Browser anzeigen l
 * Country of Vaccination
 * Certificate Issuer
 
-**Use-Case 5:**\
+**Use-Case 2:**\
 Covid-19 Zertifikat Signature Details Anzeigen.\
 Als Benutzer möchte man die Signatur Details des QR-Codes anzeigen lassen können.
 * Algorithm
 * Key Identifier (KID)
 * Signer
 
-**Use-Case 6:**\
+**Use-Case 3:**\
 Covid-19 Zertifikat Inhalt Anzeige ändern.\
 Als Benutzer möchte man den Inhalt des QR-Codes der im Browser dargestellt wird anderst anzeigen können, als:
 * JSON Schema (Raw Format)
 * Human Readable Format
 
-**Use-Case 7:**\
+**Use-Case 4:**\
 Covid-19 Zertifikat QR-Code Verifizieren.\
 Als Benutzer möchte man den QR-Code im Browser auf Gültikeit verifizieren können.
 
-**Use-Case 8:**\
+**Use-Case 5:**\
 Covid-19 Test Zertifikate QR-Code erstellen.\
 Als Benutzer möchte man ein fakes Test Zertifikat erstellen können.
 
-**Use-Case 9:**\
+**Use-Case 6:**\
 PEM formattierte digitale Zertifikate Inhalt anzeigen.\
 Als Benutzer möchte man den Inhalt der PEM formattierte digitiale Zertifikate im Browser anzeigen können.
 
-**Use-Case 10:**\
+**Use-Case 7:**\
 Schritt für Schritt Anleitung wie ein Covid-19 Zertifikat Kodiert und dekodiert wird.\
 Als Benutzer möchte man erfahren wie die Covid-19 Zertifikate kodiert und dekodiert werden (Dokumentation Page).
 
