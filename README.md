@@ -2,23 +2,23 @@
 
 - [Decovid-19-Logo](#logo)
 - [Project Related Repositories](#project-related-repos)
-- [Dokumentation](#dokumentation)
-  - [Ausgangslage](#ausgangslage)
-  - [Geplantes Vorgehen](#geplantes-vorgehen)
-  - [Geplante Technologien](#geplante-technologien)
+- [Documentation](#dokumentation)
+  - [Initial Situation](#ausgangslage)
+  - [Planned Approach](#geplantes-vorgehen)
+  - [Planned Technologies](#geplante-technologien)
   - [User Story](#user-story)
-  - [Anforderungen](#anforderungen)
-  - [Randbedingungen und Einschränkungen](#randbedingungen)
-  - [Funktionale- und Nicht Funktionale-Anforderungen](#anforderungen-funk-nicht)
+  - [Requirements](#anforderungen)
+  - [Boundary Conditions and Constraints](#randbedingungen)
+  - [Functional and Non-Functional Requirements](#anforderungen-funk-nicht)
   - [Use-Cases](#use-cases)
-  - [Sequenz Diagramme](#sequenz-diagramm)
-  - [Architektur und Design](#architektur)
-  - [Detail Beschreibung Electronic Health Certificate](#hcert)
+  - [Sequence Diagrams](#sequenz-diagramm)
+  - [Architecture and Design](#architektur)
+  - [Detail Description Electronic Health Certificate](#hcert)
   - [Security](#security)
   - [Git Flow Strategy](#git-flow)
   - [Prototype User Interface / Usability](#prototyp-layout)
-  - [Prioritäten](#prioritaeten)
-  - [Akronyme](#akronyme)
+  - [Priorities](#prioritaeten)
+  - [Acronyms](#akronyme)
   - [Useful Covid-19 Certificate Related Links](#covid19-links)
   - [Useful Technology Documentation Related Links](#technologien-links)
   - [Useful Formatting / Decoding Links](#formatting-links)
@@ -28,7 +28,7 @@
 ## Decovid-19-Logo
 ![Decovid-19-Logo](/../main/UX%20Design/decovid-19-logo.png)
 
-Erstellt mit [Inkscape](https://inkscape.org/)
+Created with [Inkscape](https://inkscape.org/)
 
 <a name="project-related-repos"></a>
 ## Project Related Repositories
@@ -41,28 +41,29 @@ Project Kanban Board Repository:
 * [Issue Tracker Board](https://github.com/users/vitoco84/projects/2)
 
 <a name="dokumentation"></a>
-## Dokumentation
+## Documentation
 
 <a name="ausgangslage"></a>
-### Ausgangslage
-Das Covid-19 Zertifikat (QR-Code) ist auf unkonventionelle Weise encodet. Der Inhalt des QR-Codes enthält Informationen über die Impfung, Testergebnis und Angaben der Person. Die Spezifikationen sind von der Europäischen Kommission gegeben und öffentlich zugänglich. Das Ziel ist ein Nachbauen des Decoding-Prozess des Covid-19 Zertifikat. Die Entwicklung der Software bietet eine Offenlegung, wie die Covid-19 Zertifikate kodiert sind, mit dazugehöriger Dokumentation und eine Single-Page-Webanwendung, wo man das Covid-19 Zertifikat hochladen kann, dessen Inhalt anzeigen und anschliessend daraus die kodierten Informationen abzuleiten. Das bedeutet, eine unabhängige Dekodierung und Validierung der Zertifikate, wo jeder Benutzer darauf Zugriff haben kann. Für die Validierung ist der Fokus auf die Covid-19 Zertifikate der Schweiz gelegt.
+### Initial Situation
+The Covid-19 certificate (QR code) is encoded in an unconventional way. The content of the QR code contains information about the vaccination, test result and specifications of the person. The specifications are given by the European Commission and are publicly available. The goal is to replicate the decoding process of the Covid-19 certificate. The development of the software provides a disclosure of how the Covid-19 certificates are encoded, with associated documentation and a single-page web application where one can upload the Covid-19 certificate, view its contents and then derive the encoded information from it. This means independent decoding and validation of the certificates, where every user can have access to them. For validation, the focus is on the Covid-19 certificates of Switzerland.
+
 
 ![Encoding Process](/../main/Files%20and%20Pictures/QR-Code-Encoding-Process.png)
 
 <a name="geplantes-vorgehen"></a>
-### Geplantes Vorgehen
-* Lesen des QR-Codes (Upload/Scan/Drag-and-Drop Image) und Decoden zu einem String.
-* Der Inhalt muss mit "HC1:" anfangen (EU DCC Certificate).
-* Entfernen vom Header "HC1:".
-* Base45 decoden.
-* Decompress mit ZLIB um die COSE Nachricht zu erhalten.
-* Deserialize die COSE Nachricht.
-* Den Payload extrahieren um den CBOR Inhalt zu erhalten.
-* CBOR Inhalt decoden.
-* JSON Schema erhalten.
+### Planned Procedure
+* Reading the QR code (upload/scan/drag-and-drop image) and decoding it to a String.
+* The content must start with "HC1:" (EU DCC Certificate).
+* Remove from header "HC1:".
+* Decode Base45.
+* Decompress with ZLIB to get the COSE message.
+* Deserialize the COSE message.
+* Extract the payload to get the CBOR content.
+* Decode the CBOR content.
+* Obtain JSON schema.
 
 <a name="geplante-technologien"></a>
-### Geplante Technologien und Vorgehensmodell
+### Planned Technologies and Procedure Model
 * Agile Software Development
 * Java Spring Boot Application (Backend / API)
 * Swagger UI (Visualize API Resourcen)
@@ -71,70 +72,70 @@ Das Covid-19 Zertifikat (QR-Code) ist auf unkonventionelle Weise encodet. Der In
 * CI/CD mit GitHub Actions
 * Unit-Tests
 * Code Analysis mit SonarCloud
-* Application Security mit Snyk
+* Application Security with Snyk
 
 #### Spring Boot
-Spring Boot ist ein Open-Source Framework auf Java-Basis, das zur Erstellung von Micro Services verwendet wird.
+Spring Boot is an open-source Java-based framework used to create micro services.
 
 #### Angular
-Angular ist eine Entwicklungsplattform, die auf TypeScript basiert. Angular umfasst:
-* Ein komponentenbasiertes Framework für die Erstellung skalierbarer Webanwendungen.
-* Eine Sammlung gut integrierter Bibliotheken, die eine Vielzahl von Funktionen abdecken, darunter Routinrg, Formularverwaltung, Client-Server-Kommunikation und mehr.
-* Eine Reihe von Entwicklertools für das Erstellen, Testen und Aktualsieren des Codes.
+Angular is a development platform based on TypeScript. Angular includes:
+* A component-based framework for building scalable web applications.
+* A collection of well-integrated libraries that cover a wide range of functions, including routing, form management, client-server communication, and more.
+* A set of developer tools for building, testing, and updating code.
 
 #### Bootstrap
-Bootstrap ist ein kostenloses Frontend Framework für eine schnellere und einfachere Webentwicklung. Bootstrap umfasst:
-* HTML- und CSS-basierte Designvorlagen für Typografie, Formulare, Schaltflächen, Tabellen, Navigation, Modals, Bildkarusselle und vieles mehr.
-* Optionale JavaScript Plugins.
-* Es ermöglicht auch die einfache Erstellung von responsiven Designs.
+Bootstrap is a free frontend framework for faster and easier web development. Bootstrap includes:
+* HTML and CSS based design templates for typography, forms, buttons, tables, navigation, modals, image carousels and much more.
+* Optional JavaScript plugins.
+* It also allows you to easily create responsive designs.
 
 #### Swagger UI
-Swagger UI ermöglicht es jedem, sei es das Entwicklungsteam oder den Endverbraucher, die API-Ressourcen zu visualisieren und mit ihnen zu interagieren, ohne dass die Implementierungslogik vorhanden ist. Sie wird automatisch aus der OpenAPI-Spezifikation generiert, wobei die visuelle Dokumentation die Backend-Implementierung und die Nutzung auf der Client-Seite erleichtert.
+Swagger UI allows anyone, be it the development team or the end user, to visualize and interact with API resources without the implementation logic. It is automatically generated from the OpenAPI specification, with visual documentation facilitating back-end implementation and client-side usage.
 
 #### Snyk
-Snyk ist eine Sicherheitsplattform für Entwickler zur Sicherung von Code, Abhängigkeiten, Containern und Infrastruktur als Code. Es erlaubt das automatische Finden von Schwachstellen im Code.
+Snyk is a security platform for developers to secure code, dependencies, containers and infrastructure as code. It allows finding vulnerabilities in code automatically.
 
 <a name="user-story"></a>
 ### User Story
-Als Benutzer möchte man ein Covid-19 QR-Code Zertifikat als Bild hochladen können und als nächster Schritt die Informationen die im QR-Code enthalten sind auswerten und im Browser darstellen können. Den Inhalt soll als raw Format (JSON-Schema) und als user-friendly Format dargestellt werden. Als Benutzer möchte man das Verfahren verstehen, wie das Covid-19 Zertifikat kodiert ist. Zusätzlich möchte man als Benutzer überprüfen können, ob es sich um ein valides Covid Zertifikat handelt.
+As a user you want to be able to upload a Covid-19 QR code certificate as an image and as a next step evaluate the information contained in the QR code and display it in the browser. The content should be displayed as raw format (JSON schema) and as user-friendly format. As a user, you want to understand the process of how the Covid-19 certificate is encoded. Additionally, as a user, you want to be able to verify that it is a valid Covid certificate.
 
 <a name="anforderungen"></a>
-### Anforderungen
-* Testabdeckung durch Unit-Tests.
-* Clean Code und Anwendung von SOLID Principles.
-* Einfach zu bedienendes und verständliches UI für den Benutzer (Browser Navigation und Verständlichkeit).
-* Logging und Fehlermeldung.
+### Requirements
+* Test coverage through Unit- and Integrationtets.
+* Clean code and application of SOLID Principles.
+* Easy to use and understandable UI for the user (browser navigation and comprehensibility).
+* Logging und Error Reporting.
 * Application Security.
-* Keine sensitive Daten von Benutzern persistieren oder loggen.
+* Do not persist or log sensitive user data.
 
 <a name="randbedingungen"></a>
-### Randbedingungen und Einschränkungen
-Es ist noch nicht sichergestellt, ob alle Daten für die Validierung des Zertifikates (Schweiz) öffentlich zugänglich sind, so dass auch eine offline Validierung möglich ist, ohne eine externe Schnittstelle zu benutzen.
+### Boundary Conditions and Restrictions
+It is not yet ensured whether all data for the validation of the certificate (Switzerland) is publicly available, so that offline validation is also possible without using an external interface.
 
 <a name="anforderungen-funk-nicht"></a>
-### Funktionale- und Nicht Funktionale-Anforderungen
+### Functional and Non-Functional Requirements
 
-#### Funktionale Anforderungen
-* Die Applikation muss den QR-Code / Covid-19 Zertifikat decoden und dessen Inhalt anzeigen können.
-* Die Applikation muss den QR-Code / Covid-19 Zertifikat auf dessen Validierung prüfen können.
-* Die Applikation muss ein API zur Verfügung stellen.
+#### Functional Requirements
+* The application must be able to decode the QR code / Covid-19 certificate and display its contents.
+* The application must be able to check the QR code / Covid-19 certificate for its validation.
+* The application must provide an API.
 
-#### Nicht Funktionale Anforderungen
-* Die Applikation darf keine sensitiven Personen Daten persistieren.
-* Die Applikation soll ein bedienfreundliches UI haben.
-* Die Applikation soll als Open-Source Projekt verfügbar sein.
+#### Non-Functional Requirements
+* The application shall not persist sensitive personal data.
+* The application shall have a user-friendly UI.
+* The application shall be available as an open source project.
 
 <a name="use-cases"></a>
 ### Use-Cases
 
 **Use-Case 1:**\
-Covid-19 Zertifikat Inhalt Anzeigen.\
-Als Benutzer möchte man den kodierten Inhalt des QR-Codes im Browser anzeigen lassen können. Der Inhalt soll in einem User Friendly Format und als Raw Json Format angezeigt werden können. Zudem soll die Möglichkeit bestehen das Bild des QR-Code im Browser via Button Klick, vie Drag and Drop und via Computer Kamera hochladen zu können.
-* Certification Type
+Covid-19 certificate content display.\
+As a user, you want to be able to display the encoded content of the QR code in the browser. The content should be displayed in a user friendly format and as raw json format. In addition, it should be possible to upload the image of the QR code in the browser via button click and drag and drop.
+* Certificate Type
 * Schema Version
-* Vorname
-* Nachname
-* Geburtstag
+* Firstname
+* Lastname
+* Birthday
 * Unique Certificate Identifier (UVCI)
 * Dose Number
 * Total Series of Doses
@@ -147,36 +148,36 @@ Als Benutzer möchte man den kodierten Inhalt des QR-Codes im Browser anzeigen l
 * Certificate Issuer
 
 **Use-Case 2:**\
-Covid-19 Zertifikat Signature Details Anzeigen.\
-Als Benutzer möchte man die Signatur Details des QR-Codes anzeigen lassen können.
+Covid-19 Certificate Signature Details Display.\
+As a user, one would like to be able to view the signature details of the QR code.
 * Algorithm
 * Key Identifier (KID)
 * Signer
 
 **Use-Case 3:**\
-Covid-19 Zertifikat Inhalt Anzeige ändern.\
-Als Benutzer möchte man den Inhalt des QR-Codes der im Browser dargestellt wird anderst anzeigen können, als:
+Covid-19 certificate content display change.\
+As a user, you want to be able to display the content of the QR code displayed in the browser differently:
 * JSON Schema (Raw Format)
 * Human Readable Format
 
 **Use-Case 4:**\
-Covid-19 Zertifikat QR-Code Verifizieren.\
-Als Benutzer möchte man den QR-Code im Browser auf Gültikeit verifizieren können.
+Covid-19 certificate QR code verification.\
+As a user, you want to be able to verify the validity of the QR code in the browser.
 
 **Use-Case 5:**\
-Covid-19 Test Zertifikate QR-Code erstellen.\
-Als Benutzer möchte man ein fakes Test Zertifikat erstellen können.
+Create Covid-19 test certificate QR code.\
+As a user, one would like to be able to create a fakes test certificate.
 
 **Use-Case 6:**\
-PEM formattierte digitale Zertifikate Inhalt anzeigen.\
-Als Benutzer möchte man den Inhalt der PEM formattierte digitiale Zertifikate im Browser anzeigen können.
+View PEM formatted digital certificate content.\
+As a user, one would like to be able to view the content of PEM formatted digital certificates in the browser.
 
 **Use-Case 7:**\
-Schritt für Schritt Anleitung wie ein Covid-19 Zertifikat Kodiert und dekodiert wird.\
-Als Benutzer möchte man erfahren wie die Covid-19 Zertifikate kodiert und dekodiert werden (Dokumentation Page).
+Step-by-step instructions on how to encode and decode a Covid-19 certificate.\
+As a user, you want to learn how to encode and decode Covid-19 certificates (Documentation Page).
 
 <a name="sequenz-diagramm"></a>
-### Sequenz Diagramme
+### Sequence Diagrams
 
 #### Decode Digital Health Certificate
 ![Sequence Diagram Decode](/../main/Files%20and%20Pictures/Sequence-Diagram-Decode.png)
@@ -188,17 +189,17 @@ Als Benutzer möchte man erfahren wie die Covid-19 Zertifikate kodiert und dekod
 ![Sequence Diagram PEM Cert](/../main/Files%20and%20Pictures/Sequence-Diagram-PEM-Cert.png)
 
 <a name="architektur"></a>
-### Architektur und Design
+### Architecture and Design
 
 * 2-Tier Architecture with:
-  * Präsentationsschicht (client tier)
-  * Logikschicht (application-server tier)
+  * Presentation Layer (client tier)
+  * Logic Layer (application-server tier)
 
 ![Architecture](/../main/Files%20and%20Pictures/Architecture.png)
 
 <a name="hcert"></a>
-### Detail Beschreibung Electronic Health Certificate
-Die Nutzdaten werden als CBOR mit einer digitalen COSE-Signatur strukturiert und encodet. Dies wird allgemein als CBOR Web Token (CWT) bezeichnet und ist in [RFC 8392](https://datatracker.ietf.org/doc/html/rfc8392) definiert. Der Payload wird in einem hcert (JSON [RFC 7159](https://datatracker.ietf.org/doc/html/rfc7159) Objekt das die Informationen zum Gesundheitszustand enthält) claim transportiert. Die Integrität und Authentizität der Herkunft der Nutzdaten muss von der Prüfstelle überprüft werden können. Um diesen Mechanismus bereitzustellen, muss der Aussteller den CWT unter Verwendung eins asymmetrischen elektronischen Signaturschemas, wie in der COSE-Spezifikation ([RFC 8152](https://datatracker.ietf.org/doc/html/rfc8152)) definiert, signieren. Um die Grösse zu verringern und die Geschwindigkeit und Zuverlässigkeit beim Lesen des hcert zu verbessern, ist der CWT mit ZLib ([RFC 1950](https://datatracker.ietf.org/doc/html/rfc1950)) und dem Deflate-Kompressionsmechanismus in dem in ([RFC 1951](https://datatracker.ietf.org/doc/html/rfc1951)) definierten Format komprimiert werden. Um mit älteren Geräten, die für ASCII-Nutzdaten ausgelegt sind, besser umgehen zu können, wurde der komprimierte CWT mit Base45 als ASCII encoded, bevor er in einen 2D-Strichcode umgewandelt wird.
+### Detail Description Electronic Health Certificate
+The user data is structured and encoded as a CBOR with a digital COSE signature. This is commonly referred to as a CBOR Web Token (CWT) and is defined in [RFC 8392](https://datatracker.ietf.org/doc/html/rfc8392). The payload is transported in a hcert (JSON [RFC 7159](https://datatracker.ietf.org/doc/html/rfc7159) object containing the health state information) claim. It must be possible for the verifier to verify the integrity and authenticity of the origin of the payload. To provide this mechanism, the issuer must sign the CWT using an asymmetric electronic signature scheme as defined in the COSE specification ([RFC 8152](https://datatracker.ietf.org/doc/html/rfc8152)). To reduce the size and improve the speed and reliability of reading the hcert, the CWT shall be compressed using ZLib ([RFC 1950](https://datatracker.ietf.org/doc/html/rfc1950)) and the deflate compression mechanism in the format defined in ([RFC 1951](https://datatracker.ietf.org/doc/html/rfc1951)). To better deal with older equipment designed for ASCII payloads, the compressed CWT has been encoded as ASCII using Base45 before being converted to a 2D barcode.
 
 #### CWT Claim Structure
 * Protected Header
@@ -213,19 +214,19 @@ Die Nutzdaten werden als CBOR mit einer digitalen COSE-Signatur strukturiert und
 * Signature
 
 #### Base45 Data Encoding
-Ein QR-Code wird verwendet, um Text als grafisches Bild zu kodieren. Abhängig von den im Text verwendeten Zeichen gibt es veschiedene Kodierungsmöglichkeiten für einen QR-Code. Z.B. numerisch, alphanumerisch und bytes-modus. Das bedeutet solche Daten müssen in einen geeigneten Text umgewandelt werden, bevor dieser Text als QR-Code kodiert werden kann. Für das Covid-Zertifikat wird eine 45 Zeichen Untermenge von ASCII (American Standard Code for Information Interchange) verwendet.
+A QR code is used to encode text as a graphical image. Depending on the characters used in the text, there are different encoding options for a QR code. E.g. numeric, alphanumeric and bytes-mode. This means that such data must be converted into a suitable text before this text can be encoded as a QR code. For the Covid certificate, a 45 character subset of ASCII (American Standard Code for Information Interchange) is used.
 
 #### ZLib
-ZLib ist eine Software Library für die Komprimierung und Dekomprimierung von Daten mit dem Deflate-Algorithmus (verlustfreien Datenkompression).
+ZLib is a software library for compressing and decompressing data using the Deflate algorithm (lossless data compression).
 
 #### Concise Binary Object Representation (CBOR)
-CBOR ist ein binäres kompaktes Datenformat dessen Design Ziele die Möglichkeit einer extrem kleinen Code Grösse, eine relativ kleine Nachrichtengrösse und Erweiterbarkeit ohne die Notwendigkeit für Version handling. Das zugrunde liegende Datenmodell ist eine erweiterte Version des JSON Datenmodell. Es erhöht die Prozessierungs- und Übertragungsgeschwindigkeit auf Kosten der Lesbarkeit. Es ist das Datenformat auf dem COSE Nachrichten basieren.
+CBOR is a binary compact data format whose design goals are the possibility of an extremely small code size, a relatively small message size and extensibility without the need for version handling. The underlying data model is an extended version of the JSON data model. It increases processing and transmission speed at the expense of readability. It is the data format on which COSE messages are based.
 
 #### CBOR Object Signing and Encyption (COSE)
-COSE legt fest, wie Verschlüsselung, Signaturen und Message-Authentication-Code (MAC) Operationen zu verarbeiten sind und wie die Schlüssel mit CBOR kodiert werden können. Also ein signierter binäres Datenformat. Die Grundstruktur einer COSE Nachricht besteht aus 2 Informationsbereichen (Protected- und Unprotected-Header) und dem Payload der Nachricht. Es gibt 6 verschieden COSE Nachrichten. Die COSE Nachricht, die für das Covid Zertifikat genutzt wird ist vom Typ `Sign1Message`. Das bedeutet es enthält eine Signatur in bytes. Damit nun das Covid Zertifikat validiert werden kann, müssen die Validerungsstellen implizit den öffentlichen (public key) kennen, um die Nachricht zu überprüfen, da keine zusätzlichen Schlüsselinformationen übertragen werden.
+COSE specifies how encryption, signatures and message authentication code (MAC) operations are to be processed and how the keys can be encoded using CBOR. Thus, a signed binary data format. The basic structure of a COSE message consists of 2 information areas (Protected and Unprotected header) and the payload of the message. There are 6 different COSE messages. The COSE message used for the Covid certificate is of type `Sign1Message`. This means it contains a signature in bytes. In order to validate the Covid certificate, the validators must implicitly know the public key to verify the message, since no additional key information is transmitted.
 
 #### Requirements on TLS (Transport Layer Security), Upload and CSCA (Swiss Country Signing Certification Authority)
-Für digitale Zertifikate und kryptografische Signaturen im DCCG-Kontenxt (Digital Covid Certificate Gateway) sind die wichtigsten Anforderungen an kryptografische Algorithmen und Schlüssellängen wie folgt zusammengefasst:
+For digital certificates and cryptographic signatures in the DCCG (Digital Covid Certificate Gateway) account text, the most important requirements for cryptographic algorithms and key lengths are summarized as follows:
 
 | Signature Algorithm | Key Size | Hash Function |
 |---------------------|----------|---------------|
@@ -234,36 +235,36 @@ Für digitale Zertifikate und kryptografische Signaturen im DCCG-Kontenxt (Digit
 | RSA-PKCS#1 v1.5 (legacy padding) | Min. 3000 Bit RSA Modulus (N) with a public exponent e > 2^16 | SHA-2 with an output length >= 256 Bit |
 | DSA | Min. 3000 Bit prime p, 250 Bit key q | SHA-2 with an output length >= 256 Bit |
 
-#### Covid Zertifikat Überprüfungs Regeln
-* Enthält das Zertifikat eine gütlige elektronische Signatur?
-* Ist das Zertifikat definitiv nicht widerrufen worde?
-* Erfüllt das Zertifikat die anwendbaren Gültigkeitsregeln (Business Rules)?
+#### Covid Certificate Verification Rules
+* Does the certificate contain a valid electronic signature?
+* Has the certificate definitely not been revoked?
+* Does the certificate meet the applicable validity rules (business rules)?
 
-#### Digitale Zertifikate
-Digitale Zertifikate enthalten bestimmte Informationen, die durch den X.509 [RFC 2459](https://www.ietf.org/rfc/rfc2459.txt) Standard festgelegt sind.
+#### Digital Certificates
+Digital certificates contain certain information specified by the X.509 [RFC 2459](https://www.ietf.org/rfc/rfc2459.txt) standard.
 
-Digitale Zertifikate enthalten mindestens die folgenden Informationen über die zu zertifizierende Authority:
-* Den öffentlichen Schlüssel (Public Key) des Inhabers
-* Den Namen des Inhabers
-* Den Namen der CA (Certificate Authority), die das Zertifikat ausgestellt hat
-* Das Datum, ab dem das Zertifikat gültig ist
-* Das Verfallsdatum des Zertifikates
-* Die Versionsnummer des Zertifikatsdatenformat, wie in X.509 definiert (Standard ist Version 3)
-* Eine Seriennummer, eine eindeutge Kennung, die von der CA vergeben wird
-* Ein Issuer Identifier
-* Ein Subject Identiifer
+Digital certificates contain at least the following information about the authority being certified:
+* The public key of the holder
+* The name of the holder
+* The name of the CA (Certificate Authority) that issued the certificate
+* The date from which the certificate is valid
+* The expiration date of the certificate
+* The version number of the certificate data format as defined in X.509 (default is version 3)
+* A serial number, a unique identifier assigned by the CA
+* An issuer identifier
+* A subject identifier
 
-Die digitale Signatur in einem Zertifikat wird mit dem privaten Schlüssel (Private Key) der Zertifizierungsstelle erzeugt, die das Zertifikat signiert hat. Jeder, der das persönliche Zertifikat überprüfen muss, kann dazu den öffentlichen Schlüssel der CA verwenden. Das Zertifikat der CA enthält ihren öffentlichen Schlüssel.
+The digital signature in a certificate is generated using the private key of the CA that signed the certificate. Anyone who needs to verify the personal certificate can use the CA's public key to do so. The CA's certificate contains its public key.
 
-Digitale Zertifikate enthalten nicht ihren privaten Schlüssel. Sie müssen ihren privaten Schlüssel geheim halten.
+Digital certificates do not contain their private key. They must keep their private key secret.
 
 <a name="security"></a>
 ### Security
-Die Sicherheit der Software wird nach best practices sichergestellt, und mit der Berücksichtigung der [OWASP Top 10](https://owasp.org/Top10/) (The Open Web Application Security Project).
+The security of the software is ensured according to best practices, and with the consideration of the [OWASP Top 10](https://owasp.org/Top10/) (The Open Web Application Security Project).
 
 <a name="git-flow"></a>
 ### Git Flow Strategy
-GitHub Flow mit main- und feature-branches, um den Hauptcode in einem konstanten, einsatzfähigen Zustand zu halten und somit die kontinuierliche Integration und den kontinuierlichen Bereitstellungsprozess zu unterstützen.
+GitHub Flow with main and feature branches to keep the main code in a constant, deployable state to support continuous integration and continuous deployment process.
 
 ![GitHub Flow](/../main/Files%20and%20Pictures/GitHub-Flow-Strategy.png)
 
@@ -272,26 +273,26 @@ GitHub Flow mit main- und feature-branches, um den Hauptcode in einem konstanten
 ![UI Prototype](/../main/UX%20Design/decovid-19-prototype-layout-diagrams.png)
 
 <a name="prioritaeten"></a>
-### Prioritäten
+### Priorities
 
 #### Prio 1:
-* Single-Page-Webanwendung
-* API Schnittstelle (Swagger UI)
-* Covid-19 QR-Code Zertifikat hochladen
-* Covid-19 QR-Code Zertifikat previewen
-* Covid-19 QR-Code Zertifikat Inhalt decoden und im Browser Anzeigen oder über die API Resource beziehen
+* Single Page Web-Application
+* API Interface (Swagger UI)
+* Upload Covid-19 QR code certificate
+* Preview Covid-19 QR code certificate
+* Covid-19 QR code certificate content decode and display in browser or get from API resource
 
 #### Prio 2:
-* Covid-19 QR-Code Zertifikat Validierung
-* PEM Digitale Zertifikate Inhalt anzeigen
-* Dokumentation Page des Encoding / Decoding Prozess
+* Covid-19 QR code certificate validation
+* PEM Digital Certificates Show content
+* Documentation page of the encoding/decoding process
 
 #### Prio 3:
 * Deployment
-* Base45 Encoder / Decoder als separates feature
+* Base45 encoder/decoder as separate feature
 
 <a name="akronyme"></a>
-### Akronyme
+### Acronyms
 * DSA: Digital Signature Algorithm
 * ECDSA: Elliptic Curve Digital Signature Algorithm
 * PKCS: Public Key Cryptography Standard
@@ -329,4 +330,4 @@ GitHub Flow mit main- und feature-branches, um den Hauptcode in einem konstanten
 
 <a name="appendix"></a>
 ### Appendix / Disclaimer
-Alle hier veröffentlichten Bilder enthalten keine expliziten Informationen über reale Personen. Alle Bilder sind öffentlich zugänglich oder von Testdaten abgeleitet.
+All images published here do not contain explicit information about real people. All images are in the public domain or derived from test data.
