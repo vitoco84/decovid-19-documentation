@@ -49,6 +49,7 @@ The Covid-19 certificate (QR code) is encoded in an unconventional way. The cont
 
 
 ![Encoding Process](/../main/Files%20and%20Pictures/QR-Code-Encoding-Process.png)
+Ref: [Serialization pattern](https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32021D1073&rid=4)
 
 <a name="geplantes-vorgehen"></a>
 ### Planned Procedure
@@ -265,6 +266,7 @@ The security of the software is ensured according to best practices, and with th
 <a name="git-flow"></a>
 ### Git Flow Strategy
 GitHub Flow with main and feature branches to keep the main code in a constant, deployable state to support continuous integration and continuous deployment process.
+This workflow has been published by [Vincent Driessen](https://nvie.com/about/).
 
 ![GitHub Flow](/../main/Files%20and%20Pictures/GitHub-Flow-Strategy.png)
 
